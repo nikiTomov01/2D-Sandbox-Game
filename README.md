@@ -76,4 +76,13 @@
 ### Introduction
   The 'InventoryUI' class represents the user interface(UI) for displaying the player's inventory in the game. It works in conjuction with the 'Inventory' class to update the UI when the inventory changes.
 
-###Public Fields
+### Public Fields
+  * 'itemParent'(Transform): The parent transform object that holds the inventory slot UI elements.
+  * 'inventoryUI'(GameObject): The game object representing the inventory UI panel.
+  * 'inventory'(Inventory): Reference to the 'Inventory' class instance.
+  * 'slots'(InventorySlot[]): Array of inventory slot UI elements.
+
+### Private Methods
+  * 'Start()': Unity's Start method, called at the start of the script. It retrieves the 'Inventory' instance, subscribes to the 'onItemChangedcallBack' event, and retrieves all inventory slot UI elements from the 'itemsParent'.
+  * 'Update()': Called once per frame. It checks for the "Inventory" button input and toggles the visibility of the inventory UI panel.
+  * 'UpdateUI()': 
