@@ -88,10 +88,94 @@
   * 'UpdateUI()': Updates the inventory UI based on the current items in the inventory. It iterates through the inventory slot UI elements and adds items from the inventory to the corresponding slots. If there are fewer items than slots, the remaining slots are cleared.
 
 ### Usage
-1. Attach the 'InventoryUI' script to a game object.
-2. Assign the corresponding UI elements and references in the inspector:
+  1. Attach the 'InventoryUI' script to a game object.
+  2. Assign the corresponding UI elements and references in the inspector:
   * 'itemsParent': Assign the parent transform object that holds the inventory slot UI elements.
   * 'inventoryUI': Assign the game object representing the inventory UI panel.
   * 'inventory' Assign the instance of the 'Inventory' class.
   * 'slots': Leave it empty or assign the inventory slot UI elements manually.
-3. Implement the 'UpdateUI' method to update the inventory UI based on the changes in the 'Inventory' class.
+  3. Implement the 'UpdateUI' method to update the inventory UI based on the changes in the 'Inventory' class.
+
+#InventorySlot
+### Introduction
+  The 'InventorySlot' class represents a single sot in the inventory UI. It is responsible for displaying the item icon, handling interactions with the slot, and providing functionality for removing or using the item.
+
+### Public Fields
+  * 'icon'(Image): Reference to the 'Image' component representing the item icon.
+  * 'removeButton'(Button): Reference to the 'Button' component for removing the item.
+
+### Private Fields
+  * 'item'(item): The item stored in the inventory slot.
+
+### Public Methods
+  * 'AddItem(Item newItem)': Adds an item to the inventory slot and updates the UI accordingly. It assigns the provided item to the 'item' fields, sets the icon sprite to the item's icon, enables the icon display, and enables the remove button.
+  * 'ClearSlot()': Clears the inventory slot by removing the item and updating the UI. It sets the 'item' field to 'null', clears the icon sprite, disables the icon display, and disables the remove button.
+  * 'OnRemoveButton()': Handles the button click event for removing the item from the inventory. It calls the 'Remove' method of the 'Inventory' class, passing the stored item as the parameter.
+  * 'UseItem()': Uses the item in the inventory slot if it is not 'null'. It calls the 'Use' method on the item.
+
+### Usage
+  1. Attach the 'InventorySlot' script to a game object.
+
+# Interactable
+### Introduction
+  The 'Interactable' class is a base class for objects in the game world that can be interacted with by the player. It provides functionality for detecting player proximity, triggering iteractions within a specified radius, and displaying a visual indicator in the scene editor.
+
+### Public Fields
+  * 'raidus'(float): The radius within which the player can interact with the object.
+  * 'player'(Transform): Reference to the player's transform.
+  * 'hasInteracted'(bool): Indicates wheather the interaction has already occured.
+
+### Public Methods
+  * 'Interact()': This method is meant to be overridden in derived classes. It represents the interaction logic for specific interactable objects.
+
+### Private Methods
+  * 'Start()': Unity's Start method, called at the start of the script. Initializes the 'player' reference by finding the game object with the 'Player' tag and accessing its transform.
+  * 'Update()': Checks for the player proximity and triggers the interaction if the player is within the specified radius.
+  * 'OnDrawGizmosSelected()': Dras a wire sphere in the scene editor to visualize the interaction radius.
+
+### Usage
+  1. Create a new script deriving from the 'Interactable' class.
+  2. Implement the 'Interact()' method in the derived class to define the specific interaction logic for the interactable object.
+  3. Optionally, modify the public fields in the inspector to customize the intraction behavior.
+  4. Play the game and observe the interaction behavior based on the implemented 'Interact()' method and proximityu to the interactable objects.
+
+# ItemPickUp
+### Introduction
+  The 'ItemPickUp' class extends the 'Interactable' class and represents an interactable object in the game world that can be picked up by the player. When the player interacts with the object, the 'ItemPickUp' class handles picking up the item and adding it to the player's inventory.
+
+### Public Fields
+  * 'item'(Item): The item that can be picked up.
+
+### Public Methods
+  * 'Interact()': Overrides the 'Interact()' method from the base 'Interactable' class and handles the logic for picking up the item.
+
+### Private Methods
+  * 'PickUp()' Handles the actual picking up of the item, adds it to the player's inventory, and destorys the game object.
+
+### Usage
+  1. Attach the 'ItemPickUp' script to game objects representing items that can be picked up in the game world.
+  2. Assign the 'item' field in the inspector with the appropriate item object that corresponds to the item represented by the game object.
+  3. Optionally modify the 'Interact()' method to add additional behavior or customize the picking up logic.
+  4. Optionally modify the 'PickUp()' method to customize the picking up behavior.
+
+# CharacterMechanics
+### Introduction
+  The 'CharacterMechanics' class handles various mechanics related to the character in the game. It includes functionality for raycasting, destroying objects upon mouse click and spawning in items from the destroyed objects.
+
+### Public Fields
+  * 'layer'(LayerMask): The layer mask used for raycasting.
+  * 'axeSpawn'(GameObject): The prefab for spawning an axe when an object is destroyed.
+  * 'coalSpawn'(GameObject): The prefab for spawning coal when an object is destroyed.
+
+### Private Fields
+  * 'direction'(Vector3): The direction vector from the character to the mouse position.
+  * 'hit'(RaycastHit2D): The result of the raycast hit.
+
+### Private Methods
+  * 'Update()': Handles mouse input and calls 'RaycastToMousePos()' on mouse click.
+  * 'RaycastToMousePos()': Performs a raycast from the character to the mouse position and handles interactions with objects hit by the raycast.
+
+### Usage
+  1. Attach the 'CharacterMechanics' script to the character object in the game.
+  2. Assign the appropriate values to the public fields in the inspector, such as the layer mask and the axe and coal spawn prefabs.
+
