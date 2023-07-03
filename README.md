@@ -15,3 +15,26 @@
   * 'surfaceValue'(float): The threshold value for determining surface tiles.
   * 'heightMultiplier'(float): The multiplier applied to the height value obtained from Perlin noise.
   * 'heightAddition'(int): The constant value added to the height value obtained from Perlin noise.
+  * 'spawnPoint'(Vector2): The spawn point for the main player character.
+  * 'mainPlayer'(GameObject): The game object representing the main player character.
+
+### Private Fields
+  * 'seed'(float): The seed value used for randomizing the Perlin noise.
+  * 'worldChunks'(GameObject[]): Array of game objects representing the chunks in the terrain.
+  * 'worldTiles'(List<Vector2>): List of 2D vectors representing the possiton of placed tiles.
+  * 'noiseTexture'(Texture2D): The texture used to generate Perlin noise.
+
+### Public Methods
+  * 'CreateChunk()': Creates the chunks in the terrain based on the 'worldSize' and 'chunkSize' values.
+  * 'GenerateTerrain()': Generates the terrain by iterating over the world coordinates and placing appropriate tiles based on height values and other rules.
+  * 'PlaceTile(Sprite tileSprite, int x, int y)': Places a tile at the given coordinates with the specified sprite.
+  * 'GenerateNoiseTexture()': Generates Perlin noise and stores it in the 'noiseTexture' variable.
+
+### Private Methods
+  * 'GenerateTree(int x, int y)': Generates a tree at the given coordinates by placing log and leaf tiles.
+  * 'Start()': Unity's Start method, called at the start of the script. Initializes the seed, generates noise texture, creates chunks and generates the terrain.
+
+### Usage
+  1. Attach the 'TerrainGeneration' script to a game object.
+  2. Assign the required sprites and adjust the generation settings as desired.
+  3. Run the gmae or call the public methods as needed to generate or modify the terrain.
