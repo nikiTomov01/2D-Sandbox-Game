@@ -179,3 +179,55 @@
   1. Attach the 'CharacterMechanics' script to the character object in the game.
   2. Assign the appropriate values to the public fields in the inspector, such as the layer mask and the axe and coal spawn prefabs.
 
+# CharacterCombat
+### Introduction
+  The 'CharacterCombat' class handles combat-related mechanics for a character in the game. It includes functionality for attacking enemies, taking damage, and triggering specific actions upon death.
+
+### Public Fields
+  * 'attackPoint'(Transform): The position from where the character's attack originates.
+  * 'attackRange'(float): The range of the character's attack.
+  * 'enemyLayer'(LayerMask): The layers that represent enemies.
+
+### Private Fields
+  * 'maxHealth'(float): The maximum health of the character.
+  * 'currentHealth'(float): The current health of the character.
+  * 'damage'(float): The amount of damage inflicted by the character's attack.
+
+### Public Methods
+  * 'TakeDamage(float damage)': Reduces the character's health by the specified damage amount. Handles death and triggers necessary actions upon reaching zero health.
+
+### Private Methods
+ * 'Start()': Initializes the character's current health to his maximum health.
+ * 'Update()': Checks for the player input to initiate an attack.
+ * 'Attack()': Performs an attack action. Detects and damages enemies within the attack range.
+ * 'OnDrawGizmosSelected()': Draws a wire sphere in the unity editor to visualize the attack range.
+
+### Usage
+  1. Attach the 'CharacterCombat' script to the character object in the game.
+  2. Assign the appropriate values to the public fields in the inspector, such as the attack point position, attack range and enemy layers.
+
+# CharacterMovement
+### Introduction
+  The 'CharacterMovement' class handles the movement and jumping mechanics for a character in the game. It allows the character to move horizontally, jump, and detect if it is grounded.
+
+### Private Fields
+  * 'horizontal'(float): The horizontal input value representing the movement direction.
+  * 'speed'(float): The movement speed of the character.
+  * 'jumpingPower'(float): The upward force applied when the character jumps.
+  * 'isFacingRight'(bool): Indicates wheather the character is currently facing right.
+  * 'isGrounded'(bool): Indicates wheather the character is currently grounded.
+  * 'rb'(Rigidbody2D): The Rigidbody2D component attached to the character.
+  * 'groundLayer'(LayerMask): The layer(s) reprenseting the ground.
+
+### Private Methods
+  * 'Update()': Handles input for horizontal movement, jumping and flipping the character.
+  * 'FixedUpdate()': Applies horizontal movement to the character.
+  * 'OnCollisionEnter2D(Collsion2D collsion)': Called when the character collides with another object. Checks if the character is grounded based on collision contact normal.
+  * 'Flip()': Flips the character's scale to face the movement direction.
+
+### Usage
+  1. Attach the 'CharacterMovement' script to the character object in the game.
+
+# EnemyMechanics
+### Introduction
+  
