@@ -230,4 +230,42 @@
 
 # EnemyMechanics
 ### Introduction
-  
+  The 'EnemyMechanics' class controls the behavior and mechanics of an enemy character in the game. It manages the enemy's movement, health, damage, and interaction with the player.
+
+### Public Fields
+  * 'currentHealth'(float): The current health of the enemy.
+  * 'attackPoint'(Transform): The position representing the enemy's attack range.
+  * 'playerLayer'(LayerMask): The layer representing the player.
+  * 'playerPos'(Transform): The position of the player.
+  * 'axe'(GameObject): The axe prefab for item drops.
+
+### Private Fields
+  * 'maxHealth'(float): The maximum health of the enemy.
+  * 'armor'(int): The armor value, reducing the amount of damage taken.
+  * 'damage'(float): The amount of damage the enemy inflicts on the player.
+  * 'attackRange'(float): The radius of the enemy's attack range.
+  * 'speed'(float): The movement speed of the enemy.
+  * 'jumpingPower'(float): The upward force applied when the enemy jumps.
+  * 'isGrounded'(bool): Indicates whether the enemy is currently grounded.
+  * 'rb'(Rigidbody2D): The Rigidbody2D component attached to the enemy.
+  * 'groundLayer'(LayerMask): The layer(s) representing the ground.
+  * 'moveDirection'(Vector2): The movement direction of the enemy.
+
+### Private Methods
+  * 'Awake()': Called when the script instance is being loaded. Initializes the Rigidbody2D component.
+  * 'Start()': Sets the initial health of the enemy.
+  * 'Update()': Handles enemy movement towards player.
+  * 'FixedUpdate()': Applies horizontal movement to the enemy.
+  * 'OnCollisionEnter2D(Collision2D collision)': Called when the enemy collides with another object. Checks if the enemy is grounded or collides with the player and deals damage to the player.
+  * 'OnTriggerEnter2D(Collider2D collision): Called when the enemy enters a triggered collider. Calls 'JumpyJump()' if the small trigger collieder attached to the enemy collides with a ground block infront of him.
+  * 'TakaDamage(floatDamage)': Reduces the enemy's health when it takes damage and triggers the death sequence when health reaches zero.
+  * 'Death()': Handlesthe death sequence of the enemy, including item drops and object destruction.
+  * 'OnDrawGizmosSelected()": Draws a wire sphere around the attack point to visualize the attack range in the editor.
+
+### Usage
+  1. Attach the 'EnemyMechanics' script to the enemy game object in the game.
+  2. Set up the enemy's attack point using the 'attackPoing' field in the inspector.
+  3. Set the player layer using the 'playerLayer' field in the inspector.
+  4. Set the ground layer using the 'groundLayer' field in the inspector.
+  5. Set the player positoin using the 'playerPos' field in the inspector.
+  6. Assign the axe prefab to the 'axe' field in the inspector.
