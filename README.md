@@ -88,10 +88,10 @@
   * 'UpdateUI()': Updates the inventory UI based on the current items in the inventory. It iterates through the inventory slot UI elements and adds items from the inventory to the corresponding slots. If there are fewer items than slots, the remaining slots are cleared.
 
 ### Usage
-  1. Attach the 'InventoryUI' script to a game object.
-  2. Assign the corresponding UI elements and references in the inspector:
+1. Attach the 'InventoryUI' script to a game object.
+2. Assign the corresponding UI elements and references in the inspector:
   * 'itemsParent': Assign the parent transform object that holds the inventory slot UI elements.
   * 'inventoryUI': Assign the game object representing the inventory UI panel.
   * 'inventory' Assign the instance of the 'Inventory' class.
   * 'slots': Leave it empty or assign the inventory slot UI elements manually.
-  3. Implement the 'UpdateUI' method to update the inventory UI based on the changes in the 'Inventory' class.
+3. Implement the 'UpdateUI' method to update the inventory UI based on the changes in the 'Inventory' class.
