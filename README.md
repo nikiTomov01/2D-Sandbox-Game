@@ -1,6 +1,6 @@
 # 2D-Sandbox-Game
 
-## Terrain Generation
+# Terrain Generation
 ### Introduction
   The "TerrainGeneration" class is responsible for generating a 2D terrain using Perlin noise and placing different types of tiles based on specific rules.
 
@@ -39,7 +39,7 @@
   2. Assign the required sprites and adjust the generation settings as desired.
   3. Run the gmae or call the public methods as needed to generate or modify the terrain.
 
-## Inventory
+# Inventory
 ### Introduction
   The 'Inventory' class represents an inventory system in the game. It manages the player's inventory, 
   including adding and removing items, tracking available space, and notifying listeners of changes to the inventory.
