@@ -63,3 +63,11 @@
   * 'Add(Item item)': Adds an item to the inventory. If the inventory is full, it returns false. Otherwise, it adds the item to the list and triggers the 'onItemChangedCallBack' event.
   * 'Remove(Item item): Removes an item from the inventory. It removes the item from the list, and if it is a special item like an axe or coal ore, it spawns the corresponding game object near the players position. It also triggers the 'onItemChangedCallBack' event.
   * 'OnPlayerDeath()': handles the removal of all items from the inventory when the player dies. It spawns dropped items near the player's position.
+
+### Singleton Implementation
+  The Singleton implementation ensures that only one instance fo the 'Inventory' class exists. In the 'Awake()' method, it checks if an instance already exists. If it does, a warning is logged. Otherwise the instance is set to the current instance, and the player game object is assigned using the 'GameObject.FindWithTag()' method.
+
+### Usage
+  1. Attach the 'Inventory' script to a game object.
+  2. Assign the player game object to the 'player' field.
+  3. Implement the 'OnItemChanged' event to respond to inventory changes.
