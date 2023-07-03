@@ -71,3 +71,9 @@
   1. Attach the 'Inventory' script to a game object.
   2. Assign the player game object to the 'player' field.
   3. Implement the 'OnItemChanged' event to respond to inventory changes.
+
+#InventoryUI
+### Introduction
+  The 'InventoryUI' class represents the user interface(UI) for displaying the player's inventory in the game. It works in conjuction with the 'Inventory' class to update the UI when the inventory changes.
+
+###Public Fields
