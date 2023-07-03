@@ -38,3 +38,7 @@
   1. Attach the 'TerrainGeneration' script to a game object.
   2. Assign the required sprites and adjust the generation settings as desired.
   3. Run the gmae or call the public methods as needed to generate or modify the terrain.
+
+## Inventory
+### Introduction
+  The 'Inventory' class
