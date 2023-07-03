@@ -85,4 +85,10 @@
 ### Private Methods
   * 'Start()': Unity's Start method, called at the start of the script. It retrieves the 'Inventory' instance, subscribes to the 'onItemChangedcallBack' event, and retrieves all inventory slot UI elements from the 'itemsParent'.
   * 'Update()': Called once per frame. It checks for the "Inventory" button input and toggles the visibility of the inventory UI panel.
-  * 'UpdateUI()': 
+  * 'UpdateUI()': Updates the inventory UI based on the current items in the inventory. It iterates through the inventory slot UI elements and adds items from the inventory to the corresponding slots. If there are fewer items than slots, the remaining slots are cleared.
+
+### Usage
+  1. Attach the 'InventoryUI' script to a game object.
+  2. Assign the corresponding UI elements and references in the inspector:
+    * 'itemsParent': Assign the parent transform object that holds the inventory slot UI elements.
+    * 'inventoryUI': Assign the game object representing the inventory UI panel.
