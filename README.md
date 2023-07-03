@@ -40,34 +40,34 @@
   3. Run the gmae or call the public methods as needed to generate or modify the terrain.
 
 # Inventory
-## Introduction
+### Introduction
   The 'Inventory' class represents an inventory system in the game. It manages the player's inventory, 
   including adding and removing items, tracking available space, and notifying listeners of changes to the inventory.
 
-## Public Fields
+### Public Fields
   * 'player'(GameObject): Reference to the player game object.
 
-## Singleton
+### Singleton
   The 'Inventory' class follows the Singleton design pattern to ensure that only one instance of the inventory exists in the game. This pattern allows global access to the inventory instance.
 
-## Public Delegates
+### Public Delegates
   * 'OnItemChanged': Delegate used to define a callback function when the inventory changes.
   * 'onItemChangedCallBack': Event that is triggered when an item is added or removed from the inventory.
 
-## Private Fields
+### Private Fields
   * 'inventorySpace'(int): The maximum number of items that can be stored in the inventory.
   * 'playerTransform'(Transform): The transform component of the player game object.
   * 'items'(List<Item>): The list of items currently in the inventory.
 
-## Public Methods
+### Public Methods
   * 'Add(Item item)': Adds an item to the inventory. If the inventory is full, it returns false. Otherwise, it adds the item to the list and triggers the 'onItemChangedCallBack' event.
   * 'Remove(Item item): Removes an item from the inventory. It removes the item from the list, and if it is a special item like an axe or coal ore, it spawns the corresponding game object near the players position. It also triggers the 'onItemChangedCallBack' event.
   * 'OnPlayerDeath()': handles the removal of all items from the inventory when the player dies. It spawns dropped items near the player's position.
 
-## Singleton Implementation
+### Singleton Implementation
   The Singleton implementation ensures that only one instance fo the 'Inventory' class exists. In the 'Awake()' method, it checks if an instance already exists. If it does, a warning is logged. Otherwise the instance is set to the current instance, and the player game object is assigned using the 'GameObject.FindWithTag()' method.
 
-## Usage
+### Usage
   1. Attach the 'Inventory' script to a game object.
   2. Assign the player game object to the 'player' field.
   3. Implement the 'OnItemChanged' event to respond to inventory changes.
