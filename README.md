@@ -96,7 +96,7 @@
   * 'slots': Leave it empty or assign the inventory slot UI elements manually.
   3. Implement the 'UpdateUI' method to update the inventory UI based on the changes in the 'Inventory' class.
 
-#InventorySlot
+# InventorySlot
 ### Introduction
   The 'InventorySlot' class represents a single sot in the inventory UI. It is responsible for displaying the item icon, handling interactions with the slot, and providing functionality for removing or using the item.
 
