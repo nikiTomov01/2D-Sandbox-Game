@@ -61,5 +61,5 @@
 
 ### Public Methods
   * 'Add(Item item)': Adds an item to the inventory. If the inventory is full, it returns false. Otherwise, it adds the item to the list and triggers the 'onItemChangedCallBack' event.
-  * 'Remove(Item item): Removes an item from the inventory. It removes the item from the list, and if it is a special item like an axe or coal ore, it spawns the corresponding game object near the players position.
-    It also triggers the 'onItemChangedCallBack' event.
+  * 'Remove(Item item): Removes an item from the inventory. It removes the item from the list, and if it is a special item like an axe or coal ore, it spawns the corresponding game object near the players position. It also triggers the 'onItemChangedCallBack' event.
+  * 'OnPlayerDeath()': handles the removal of all items from the inventory when the player dies. It spawns dropped items near the player's position.
